@@ -10,8 +10,8 @@ export const getTrackingData = createAsyncThunk(
       );
       console.log(response);
       return response.data;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      return err.response.data.error;
     }
   }
 );
@@ -19,7 +19,7 @@ export const getTrackingData = createAsyncThunk(
 let initialState = {
   tracking: false,
   trackedData: {},
-  error: null,
+  error: "",
 };
 
 const trackingSlice = createSlice({
@@ -35,15 +35,15 @@ const trackingSlice = createSlice({
       })
       .addCase(getTrackingData.fulfilled, (state, action) => {
         state.tracking = false;
-        if (action.payload) {
-          state.trackedData = action.payload;
+        if (action.payload === "Invalid tracking number!") {
+          state.error = action.payload;
         }
+
+        state.trackedData = action.payload;
       })
       .addCase(getTrackingData.rejected, (state, action) => {
         state.tracking = false;
-        if (action.meta.requestStatus === "rejected") {
-          state.error = action.error.message || "Something went wrong";
-        }
+        state.error = "Something went wrong";
       });
   },
 });
