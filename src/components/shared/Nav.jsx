@@ -2,8 +2,45 @@ import { useFormik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getTrackingData } from '../../Redux/TrackSlice'
+import { styled } from '@mui/material/styles';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Button } from '@mui/material';
 
 export default function Nav() {
+
+    const StyledMenu = styled((props) => (
+    <Menu
+        elevation={0}
+        anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+        }}
+        transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+        }}
+        {...props}
+    />
+        ))(() => ({
+    '& .MuiPaper-root': {
+        borderRadius: 6,
+        marginTop: 1,
+        minWidth: 180,
+        color: "black",
+        '& .MuiMenu-list': {
+        padding: '4px 0',
+        },
+    },
+    }));
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     let dispatch = useDispatch()
 
@@ -15,8 +52,6 @@ export default function Nav() {
         dispatch( getTrackingData(trackingNumber.trackingNumber))
         }
     })
-
-
 
   return (
     <div className='border-2 border-t-sky-900 h-24 flex justify-between items-center px-16 py-2'>
@@ -32,7 +67,7 @@ export default function Nav() {
             </svg>
         </div>
         {/* Routes */}
-        <div className='text-gray-600 font-semibold '>
+        <div className='xl:block sm:hidden text-gray-600 font-semibold '>
             <span className='hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>Products</span>
             <span className='hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>Integrations</span>
             <span className='hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>Use Cases</span>
@@ -63,12 +98,55 @@ export default function Nav() {
 
         </div>
         {/* Language & SignIn/SignUp */}
-        <div className='text-gray-600 font-semibold cursor-pointer'>
+        <div className='xl:block sm:hidden text-gray-600 font-semibold cursor-pointer'>
             <span className='hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>En</span>
             <span className='text-black hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>Sign In</span>
             <span className='border rounded-full border-red-600 hover:underline hover:bg-red-600 duration-300
              px-8 py-4 hover:text-white'>Sign Up</span>
         </div>
+        {/* While screen small */}
+        <div className='xl:hidden sm:block'>
+            <Button
+                aria-controls={open ? 'demo-customized-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                disableElevation
+                onClick={handleClick}>
+                <i className="fa-solid fa-bars text-gray-500"></i>
+            </Button>
+            
+            <StyledMenu
+                MenuListProps={{
+                'aria-labelledby': 'demo-customized-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+            >
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='hover:text-red-600 text-gray-500 hover:underline cursor-pointer duration-300'>Products</span>
+                </MenuItem>
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='hover:text-red-600 text-gray-500 hover:underline cursor-pointer duration-300'>Integrations</span>
+                </MenuItem>
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='hover:text-red-600 text-gray-500 hover:underline cursor-pointer duration-300'>Use Cases</span>
+                </MenuItem>
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='hover:text-red-600 text-gray-500 hover:underline cursor-pointer duration-300'>Pricing</span>
+                </MenuItem>
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='hover:text-red-600 text-gray-500 hover:underline cursor-pointer duration-300'>Blog</span>
+                </MenuItem>
+                <MenuItem onClick={handleClose} disableRipple>
+                <span className='text-black hover:text-red-600 hover:underline cursor-pointer me-10 duration-300'>Sign In</span>
+                <span className='border rounded-full border-red-600 hover:underline hover:bg-red-600 duration-300
+             px-8 py-4 hover:text-white'>Sign Up</span>
+                </MenuItem>
+                 
+            </StyledMenu>
+        </div>
     </div>
   )
 }
+

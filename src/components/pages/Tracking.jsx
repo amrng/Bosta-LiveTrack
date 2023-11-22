@@ -114,7 +114,7 @@ export default function Tracking() {
       </div>
       </>
       : 
-      <div className='flex flex-col items-center justify-center mt-52'>
+      <div className='flex flex-col items-center justify-center mt-52 text-center'>
         <i className="fa-solid fa-truck-fast fa-2xl md:scale-150 sm:scale-100 text-gray-400 mb-10"></i>
         <h1 className='md:text-4xl sm:text-lg text-gray-400 font-semibold '>Please use Track shipment to get details</h1>
       </div>}
