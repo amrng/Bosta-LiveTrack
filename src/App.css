@@ -1,0 +1,18 @@
+.arrow {
+    transition: 0.3s;
+}
+
+.track:hover .arrow {
+    transform: rotate(90deg);
+    transition: 0.3s;
+}
+
+.searching {
+    visibility: hidden;
+    transition: 0.1s;
+}
+
+.track:hover .searching {
+    visibility: visible;
+    transition: 0.3s;
+}
