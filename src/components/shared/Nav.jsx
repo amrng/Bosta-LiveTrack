@@ -86,7 +86,7 @@ export default function Nav() {
             <i className="arrow fa-solid fa-chevron-right fa-xs"></i>
             </div>
 
-            <div className="searching absolute -bottom-32 left-0 z-20 w-80 rounded-md border-2 px-10 py-6 bg-white">
+            <div className="searching absolute -bottom-32 -left-24 z-20 w-80 rounded-md border-2 px-10 py-6 bg-white">
                 <p className='text-gray-600 mb-3 w-3/4'>Track your shipment</p>
 
                 <form onSubmit={formik.handleSubmit} className='flex justify-center items-center w-3/4 mx-auto'>
