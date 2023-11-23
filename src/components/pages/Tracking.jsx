@@ -37,7 +37,7 @@ export default function Tracking() {
           <p className='text-gray-400 mb-2 font-semibold text-sm'>Last Update</p>
           <p className='text-xl font-semibold'>{new Date(trackedData?.CurrentStatus?.timestamp)
           .toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' })}
-          at {new Date(trackedData?.CurrentStatus?.timestamp)
+          {" "}at {new Date(trackedData?.CurrentStatus?.timestamp)
           .toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p>
         </div>
         {/* Provider */}
@@ -51,7 +51,7 @@ export default function Tracking() {
           {trackedData?.PromisedDate ? <>
           <p className='text-xl font-semibold'>{new Date(trackedData?.PromisedDate)
           .toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' })}
-          at {new Date(trackedData?.PromisedDate)
+          {" "}at {new Date(trackedData?.PromisedDate)
           .toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p></> : ""}
           
         </div>
@@ -75,14 +75,14 @@ export default function Tracking() {
               <th className='text-start ps-3'>Details</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody key={+trackedData?.TrackingNumber}>
             {trackedData?.TransitEvents
             ?.filter((det)=> det.state === "TICKET_CREATED" 
             || det.state === "PACKAGE_RECEIVED" 
             || det.state === "OUT_FOR_DELIVERY" 
             || det.state === "DELIVERED" || det.state === "DELIVERED_TO_SENDER" || det.state === "CANCELLED")
-            ?.map((detail)=> <tr key={detail?.TrackingNumber} className='h-12'>
-              <td className='ps-3'>Nasr City</td>
+            ?.map((detail)=> <tr key={trackedData?.TrackingNumber} className='h-12'>
+              <td  className='ps-3'>Nasr City</td>
               <td  className='ps-3'>{new Date(detail?.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
               <td  className='ps-3'>{new Date(detail?.timestamp).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</td>
               <td  className='ps-3'>

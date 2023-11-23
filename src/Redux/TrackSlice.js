@@ -8,7 +8,6 @@ export const getTrackingData = createAsyncThunk(
       const response = await axios.get(
         `https://tracking.bosta.co/shipments/track/${trackingNumber}`
       );
-      console.log(response);
       return response.data;
     } catch (err) {
       return err.response.data.error;
