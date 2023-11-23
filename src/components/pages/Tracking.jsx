@@ -85,7 +85,18 @@ export default function Tracking() {
               <td className='ps-3'>Nasr City</td>
               <td  className='ps-3'>{new Date(detail?.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
               <td  className='ps-3'>{new Date(detail?.timestamp).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</td>
-              <td  className='ps-3'>{detail?.state}</td>
+              <td  className='ps-3'>
+                {detail?.state === "TICKET_CREATED" 
+                ? "Shipment Created" 
+                : detail?.state === "PACKAGE_RECEIVED"
+                ? "Package Received"
+                : detail?.state === "OUT_FOR_DELIVERY"
+                ? "Out For Delivery"
+                : detail?.state === "DELIVERED"
+                ? "Delivered"
+                : detail?.state === "DELIVERED_TO_SENDER"
+                ? "Shipment Back To provider"
+                : "Cancelled"}</td>
             </tr>)}
             
           </tbody>
@@ -120,9 +131,12 @@ export default function Tracking() {
         <h1 className='md:text-4xl sm:text-lg text-gray-400 font-semibold '>{error}</h1>
       </div> :
       // if there is no data
-      <div className='flex flex-col items-center justify-center mt-52 text-center'>
+      <div className='flex flex-col items-center justify-center mt-60 text-center'>
         <i className="fa-solid fa-truck-fast fa-2xl md:scale-150 sm:scale-100 text-gray-400 mb-10"></i>
-        <h1 className='md:text-4xl sm:text-lg text-gray-400 font-semibold '>Please use Track shipment to get details</h1>
+        <h1 className='md:text-4xl sm:text-lg text-gray-400 font-semibold mb-4'>Please use Track shipment to get details</h1>
+        <h2 className='md:text-xl sm:text-base text-red-300 font-semibold'>
+          For example: 7234258 - 13737343 - 67151313
+        </h2>
       </div>}
     </div>
   )
