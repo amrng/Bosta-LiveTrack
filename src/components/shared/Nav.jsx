@@ -57,11 +57,11 @@ export default function Nav() {
     })
 
   return (
-    <div className='fixed top-0 w-full bg-white z-50 h-24 flex justify-between items-center px-16 py-2'>
+    <div className='fixed top-0 w-full bg-white z-50 h-24 flex justify-between items-center lg:px-16 sm:px-4 py-2'>
         {/* Logo */}
         <div>
             <Link to={""}>
-            <svg className='cursor-pointer' width="120px" viewBox="0 0 111 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <svg className='cursor-pointer md:w-32 sm:w-20' viewBox="0 0 111 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path d="M32.6634 8.83273L17.7948 0.266462C17.2016 -0.0888208 16.4503 -0.0888208 15.8572 0.266462L0.9886 8.83273C0.39544 9.18801 0 9.81962 0 10.5302V23.0835C0 23.7941 0.355896 24.4257 0.9886 24.781L15.8572 33.3473C16.1735 33.5052 16.4899 33.6236 16.8458 33.6236C17.2016 33.6236 17.518 33.5447 17.8344 33.3473L32.7029 24.781C33.2961 24.4257 33.6915 23.7941 33.6915 23.0835V10.5302C33.6519 9.81962 33.2565 9.18801 32.6634 8.83273ZM30.2116 19.9649L24.715 16.8069L30.2116 13.6488V19.9649ZM16.8458 3.66139L28.7485 10.5302L16.8458 17.399L4.90345 10.5302L16.8458 3.66139ZM3.44032 13.6093L8.93695 16.7674L3.44032 19.9255V13.6093ZM16.8458 29.9129L4.90345 23.0441L12.3377 18.7412L15.8176 20.7545C16.134 20.9124 16.4503 21.0308 16.8062 21.0308C17.1621 21.0308 17.4785 20.9518 17.7948 20.7545L21.2747 18.7412L28.709 23.0441L16.8458 29.9129Z" fill="#E30613"></path>
                 <path d="M65.6826 11.7934C61.57 11.7934 58.7229 14.5962 58.7229 18.6228C58.7229 22.6493 61.57 25.4521 65.6431 25.4521C69.7556 25.4521 72.6028 22.6493 72.6028 18.6228C72.6028 14.5962 69.7556 11.7934 65.6826 11.7934ZM65.6826 22.3335C63.5472 22.3335 62.2027 20.8729 62.2027 18.6228C62.2027 16.3726 63.5868 14.912 65.6826 14.912C67.7389 14.912 69.1625 16.4121 69.1625 18.6228C69.1229 20.8334 67.7389 22.3335 65.6826 22.3335Z" fill="#E30613"></path>
                 <path d="M80.2743 17.2016C78.653 16.9648 77.2294 16.7674 77.2294 15.6621C77.2294 15.1094 77.6249 14.3988 79.4439 14.3988C80.907 14.3988 81.9747 15.0304 82.2911 16.1358L85.415 15.4252C84.7428 13.0567 82.6865 11.7539 79.6416 11.7539C76.2408 11.7539 73.9473 13.333 73.9473 15.7015C73.9473 19.0175 76.8735 19.4123 79.2462 19.7676C80.907 20.0044 82.3701 20.2018 82.3701 21.3861C82.3701 22.0177 81.8956 22.7677 79.6416 22.7677C77.9412 22.7677 76.7944 22.1361 76.4385 20.9913L73.3146 21.6229C74.0264 24.0704 76.1617 25.3731 79.5625 25.3731C83.3192 25.3731 85.6918 23.7941 85.6918 21.2676C85.7314 17.9911 82.7261 17.5569 80.2743 17.2016Z" fill="#E30613"></path>
@@ -80,10 +80,10 @@ export default function Nav() {
             <span className='hover:text-red-600 hover:underline cursor-pointer duration-300'>Blog</span>
         </div>
         {/* Track Shipment */}
-        <div className='track relative cursor-pointer font-semibold text-red-600 duration-300 hover: hover:shadow-lg px-10 rounded-ss-3xl rounded-se-3xl h-full flex items-center justify-center'>
+        <div className='track relative cursor-pointer font-semibold text-red-600 duration-300 hover: hover:shadow-lg rounded-ss-3xl rounded-se-3xl h-full flex items-center justify-center'>
             <div>
-            <span className='pe-3'>Track Shipment</span>
-            <i className="arrow fa-solid fa-chevron-right fa-sm"></i>
+            <span className='pe-2'>Track Shipment</span>
+            <i className="arrow fa-solid fa-chevron-right fa-xs"></i>
             </div>
 
             <div className="searching absolute -bottom-32 left-0 z-20 w-80 rounded-md border-2 px-10 py-6 bg-white">

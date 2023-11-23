@@ -18,7 +18,7 @@ export default function Tracking() {
  
 
   return (
-    <div className='container mx-auto mt-36 mb-16'>
+    <div className='w-full md:px-12 sm:px-4 mx-auto mt-36 mb-16'>
       {trackedData?.CurrentStatus?.state ?
       <>
       {/* Shipment */}
@@ -58,14 +58,14 @@ export default function Tracking() {
       </div>
 
       {/* Status Bar */}
-      <div className='border rounded-es-lg border-t-0 rounded-ee-lg p-6 mb-7'>
+      <div className='border rounded-es-lg border-t-0 rounded-ee-lg py-6 mb-7'>
         <Status Current={Current}/>
       </div>
 
       {/* Table and call center */}
       <div className='flex flex-wrap justify-center w-full'>
-        <div className='lg:w-[60%] mx-0 min-w-[550px] lg:ml-5 md:ml-0 mb-5'>
-        <p className='ps-4 mb-3'>Shipment Details</p>
+        <div className='lg:w-[60%] sm:w-full mx-0  lg:ml-5 md:ml-0 mb-5'>
+        <p className='ps-4 mb-3 font-semibold'>Shipment Details</p>
         <table className="table-auto w-full  border rounded-3xl">
           <thead className='bg-gray-100 text-gray-400 h-12'>
             <tr>
@@ -103,8 +103,8 @@ export default function Tracking() {
         </table>
         </div>
 
-        <div className='max-w-[33.33%]  min-w-[350px] mx-auto'>
-          <p className='ps-4 mb-3'>Shipment Details</p>
+        <div className='lg:w-[33.33%]  sm-w-[300px] sm:mx-auto mx-auto'>
+          <p className='ps-4 mb-3 font-semibold'>Shipment Details</p>
 
           <div className='mb-3 rounded-lg border p-4 text-gray-600 bg-gray-100'>
               <p>إمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منزل 17 بلوك 33 القاهرة</p>
